@@ -9,18 +9,14 @@ radius = 64.00781
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(170, 147)
+position = Vector2(187, 151)
 script = ExtResource("1_kpjcp")
 
 [node name="Cursor" type="Marker2D" parent="Player"]
 position = Vector2(78, -18)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(80, 89)
 shape = SubResource("CircleShape2D_kpjcp")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(80, 89)
-rotation = 4.712389
 texture = ExtResource("1_xhfnw")
-centered = false
