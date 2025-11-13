@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjm3ncdt7h05b"]
+
+[ext_resource type="Texture2D" uid="uid://y4jy6newf61v" path="res://art/mob.png" id="1_dy6sc"]
+[ext_resource type="Script" uid="uid://c7fb8oou6btwl" path="res://mob.gd" id="1_nokgg"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nokgg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nokgg"]
+radius = 59.0
+
+[node name="Mob" type="RigidBody2D"]
+collision_mask = 0
+mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_nokgg")
+gravity_scale = 0.0
+script = ExtResource("1_nokgg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dy6sc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nokgg")
