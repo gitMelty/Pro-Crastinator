@@ -1,11 +1,14 @@
 extends Node
 
 @export var mob_scene: PackedScene
+@export var laser_scene: Node
 
 func _ready():
 	new_game()
 
-
+func shoot():
+	Input.action_press("shoot")
+	
 
 func new_game():
 	#$Node2D.start($StartPosition.position)

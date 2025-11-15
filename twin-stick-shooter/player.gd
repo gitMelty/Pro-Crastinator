@@ -1,6 +1,7 @@
 extends CharacterBody2D
 var screen_size
 
+@export var laser : PackedScene
 @export var speed = 400
 var pos = get_local_mouse_position() - position
 
@@ -9,11 +10,19 @@ func start():
 	show()
 	$CollisionShape2D.disabled = false
 
+func shoot():
+	var l = laser.instantiate()
+	owner.add_child(l)
+	l.transform = $Muzzle.global_transform
 
 func get_input(): #8-way movement with WASD
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = input_direction * speed
-	
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
+
+
+
 func _physics_process(_delta): 
 	get_input()
 	move_and_slide()

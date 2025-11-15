@@ -7,7 +7,7 @@
 radius = 63.03174
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kpjcp"]
-radius = 63.03174
+radius = 63.28507
 
 [node name="Node2D" type="Node2D"]
 
@@ -26,6 +26,9 @@ texture = ExtResource("1_xhfnw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Player"]
 shape = SubResource("CircleShape2D_kpjcp")
+
+[node name="Muzzle" type="Marker2D" parent="Area2D/Player"]
+position = Vector2(-64, -1)
 
 [connection signal="body_entered" from="Area2D" to="Area2D/Player" method="_on_area_2d_body_entered"]
 [connection signal="body_shape_entered" from="Area2D" to="Area2D/Player" method="_on_area_2d_body_shape_entered"]
