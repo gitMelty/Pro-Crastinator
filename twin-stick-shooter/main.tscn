@@ -19,10 +19,10 @@ offset_right = 1929.0
 offset_bottom = 1088.0
 color = Color(0.28321043, 0.104692146, 0.28321043, 1)
 
-[node name="Node2D" parent="." instance=ExtResource("1_ig7tw")]
-
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(888, 506)
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 
 [node name="StartTimer" type="Timer" parent="."]
 
@@ -36,5 +36,8 @@ curve = SubResource("Curve2D_7dm0k")
 position = Vector2(-1, -3)
 rotation = 0.0010411242
 
+[node name="LaserContainer" type="Node2D" parent="."]
+
+[connection signal="laser_shot" from="Player" to="." method="_on_player_laser_shot"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
