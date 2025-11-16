@@ -1,21 +1,38 @@
 extends CharacterBody2D
 var screen_size
 
+var laser_scene = preload("res://laser.tscn")
+signal laser_shot(laser_scene, location)
+
+@onready var muzzle = $Muzzle
+
 @export var speed = 400
 var pos = get_local_mouse_position() - position
+
+
 
 func start():
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
 
+func shoot():
+	laser_shot.emit(laser_scene,muzzle.global_position)
+	#owner.add_child(l)
+	#l.transform = $Muzzle.global_transform
 
 func get_input(): #8-way movement with WASD
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = input_direction * speed
 	
-func _physics_process(_delta): 
+
+func _process(delta):
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
 	get_input()
+
+
+func _physics_process(_delta): 
 	move_and_slide()
 	get_rotate()
 

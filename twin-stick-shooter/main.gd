@@ -1,11 +1,18 @@
 extends Node
 
 @export var mob_scene: PackedScene
+@export var laser_scene: Node
+@onready var laser_container = $LaserContainer
+
+var player = null
 
 func _ready():
 	new_game()
+	player = get_tree().get_first_node_in_group("Player")
+	
 
-
+func shoot():
+	Input.action_press("shoot")
 
 func new_game():
 	#$Node2D.start($StartPosition.position)
@@ -32,3 +39,9 @@ func _on_mob_timer_timeout() -> void:
 	mob.linear_velocity = velocity.rotated(direction)
 	
 	add_child(mob)
+
+func _on_player_laser_shot(laser_scene, location):
+	var laser = laser_scene.instantiate()
+	laser_container.owner.add_child(laser)
+	laser.global_position = location
+	laser.transform = $Player/Muzzle.global_transform
