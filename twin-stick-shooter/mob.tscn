@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://cjm3ncdt7h05b"]
 
 [ext_resource type="Script" uid="uid://c7fb8oou6btwl" path="res://mob.gd" id="1_nokgg"]
-[ext_resource type="Texture2D" uid="uid://citvkauc8di82" path="res://art/mob_clock.png" id="2_nokgg"]
+[ext_resource type="Texture2D" uid="uid://cwi67t11ew3cn" path="res://art/mob_clock.png" id="2_nokgg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nokgg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nokgg"]
-radius = 71.00704
+radius = 91.00549
 
 [node name="Mob" type="RigidBody2D"]
 light_mask = 2
