@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjm3ncdt7h05b"]
+[gd_scene load_steps=10 format=3 uid="uid://cjm3ncdt7h05b"]
 
 [ext_resource type="Script" uid="uid://c7fb8oou6btwl" path="res://mob.gd" id="1_nokgg"]
 [ext_resource type="Texture2D" uid="uid://cwi67t11ew3cn" path="res://art/mob_clock.png" id="2_nokgg"]
 [ext_resource type="Texture2D" uid="uid://bcgq41eavo823" path="res://art/mob_email.png" id="3_p11y5"]
+[ext_resource type="Texture2D" uid="uid://c1narcafwhhkl" path="res://art/mob_clock_walk1.png" id="3_s5nov"]
+[ext_resource type="Texture2D" uid="uid://d4d8tkfegkfpi" path="res://art/mob_clock_walk2.png" id="4_b3mxk"]
 [ext_resource type="Texture2D" uid="uid://cee42walbgrj3" path="res://art/mob_message.png" id="4_s5nov"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nokgg"]
@@ -12,6 +14,21 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_nokgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nokgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s5nov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nokgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nokgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b3mxk")
 }],
 "loop": true,
 "name": &"mob_clock",
@@ -47,7 +64,7 @@ script = ExtResource("1_nokgg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(7.999996, 18)
 sprite_frames = SubResource("SpriteFrames_b3mxk")
-animation = &"mob_email"
+animation = &"mob_message"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7, 23)
