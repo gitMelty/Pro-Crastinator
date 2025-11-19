@@ -5,22 +5,33 @@ extends Node
 @onready var laser_container = $LaserContainer
 
 var player = null
+var score
 
 func _ready():
-	new_game()
-	player = get_tree().get_first_node_in_group("Player")
-	
+	$Player.hide()
+
+
+
+var startpos = Vector2(960, 540)
 
 func shoot():
 	Input.action_press("shoot")
 
 func new_game():
-	#$Node2D.start($StartPosition.position)
-	$StartTimer.start()
+	$HUD.update_score(score)
 	get_tree().call_group("mobs", "queue_free")
+	$Player.show()
+	$Player.global_position = startpos
+	$HUD.show_message("Get Ready")
+	score = 0
+	$HUD.update_score(score)
+	$HUD.hide_logo()
+	$StartTimer.start()
+	
 
 func _on_start_timer_timeout():
 	$MobTimer.start()
+
 
 func _on_mob_timer_timeout() -> void:
 	var mob = mob_scene.instantiate()
@@ -45,3 +56,13 @@ func _on_player_laser_shot(laser_scene, location):
 	laser_container.owner.add_child(laser)
 	laser.global_position = location
 	laser.transform = $Player/Muzzle.global_transform
+
+func _on_child_exiting_tree(_body: RigidBody2D) -> void:
+	score += 1
+	$HUD.update_score(score)
+
+func game_over() -> void:
+	$MobTimer.stop()
+	$HUD.show_game_over()
+	get_tree().call_group("mobs", "queue_free")
+	$HUD.show_logo()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfcusb2e5v2fj"]
+[gd_scene load_steps=6 format=3 uid="uid://bfcusb2e5v2fj"]
 
 [ext_resource type="Script" uid="uid://ckkeghwqjxvr0" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://b2yw21h5k8lbu" path="res://Player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cjm3ncdt7h05b" path="res://mob.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://xrrh4lyiryow" path="res://hud.tscn" id="4_1bvp3"]
 
 [sub_resource type="Curve2D" id="Curve2D_7dm0k"]
 _data = {
@@ -25,6 +26,8 @@ position = Vector2(888, 506)
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 
 [node name="StartTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -38,6 +41,15 @@ rotation = 0.0010411242
 
 [node name="LaserContainer" type="Node2D" parent="."]
 
+[node name="HUD" parent="." instance=ExtResource("4_1bvp3")]
+
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="laser_shot" from="Player" to="." method="_on_player_laser_shot"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
+[connection signal="tree_exited" from="MobPath" to="." method="_on_mob_path_tree_exited"]
+[connection signal="tree_exited" from="MobPath/MobSpawnLocation" to="." method="_on_mob_spawn_location_tree_exited"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="tree_exited" from="HUD" to="." method="_on_hud_tree_exited"]
