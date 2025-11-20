@@ -30,7 +30,7 @@ func _process(delta): #called every frame
 	if Input.is_action_pressed("shoot"): #shoot action
 		if isShooting: 
 			shootTimer += delta
-			if shootTimer > 0.5:
+			if shootTimer > 0.2:
 				shoot()
 				shootTimer = 0
 		else:
