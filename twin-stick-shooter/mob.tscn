@@ -1,16 +1,22 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjm3ncdt7h05b"]
+[gd_scene load_steps=21 format=3 uid="uid://cjm3ncdt7h05b"]
 
 [ext_resource type="Script" uid="uid://c7fb8oou6btwl" path="res://mob.gd" id="1_nokgg"]
 [ext_resource type="Texture2D" uid="uid://cwi67t11ew3cn" path="res://art/mob_clock.png" id="2_nokgg"]
-[ext_resource type="Texture2D" uid="uid://bcgq41eavo823" path="res://art/mob_email.png" id="3_p11y5"]
 [ext_resource type="Texture2D" uid="uid://c1narcafwhhkl" path="res://art/mob_clock_walk1.png" id="3_s5nov"]
 [ext_resource type="Texture2D" uid="uid://d4d8tkfegkfpi" path="res://art/mob_clock_walk2.png" id="4_b3mxk"]
 [ext_resource type="Texture2D" uid="uid://cee42walbgrj3" path="res://art/mob_message.png" id="4_s5nov"]
+[ext_resource type="Texture2D" uid="uid://ceprmak3ul5et" path="res://art/mob_email_0.25.png" id="5_h0ign"]
+[ext_resource type="Texture2D" uid="uid://bwkis5ypmsnll" path="res://art/mob_email_0.5.png" id="6_6ak38"]
 [ext_resource type="Texture2D" uid="uid://c0gqqbotc8ime" path="res://art/mob_message_1.1.png" id="7_7ulmv"]
+[ext_resource type="Texture2D" uid="uid://b60shhjaf2pth" path="res://art/mob_email_1.png" id="7_rxhkm"]
+[ext_resource type="Texture2D" uid="uid://erbkjsagtkwd" path="res://art/mob_email_2.png" id="8_mhy1y"]
 [ext_resource type="Texture2D" uid="uid://ctjdgeaulnh7g" path="res://art/mob_message_1.2.png" id="8_pcqmr"]
+[ext_resource type="Texture2D" uid="uid://btpvbt32jul7a" path="res://art/mob_email_3.png" id="9_gy8bd"]
 [ext_resource type="Texture2D" uid="uid://hkhqomrhsbvt" path="res://art/mob_message_1.3.png" id="9_jbnni"]
+[ext_resource type="Texture2D" uid="uid://c73ypu5gu04vs" path="res://art/mob_email_4.png" id="10_srff1"]
 [ext_resource type="Texture2D" uid="uid://dinmcgwctc6qn" path="res://art/mob_message_1.4.png" id="10_yscv0"]
 [ext_resource type="Texture2D" uid="uid://6hv5a6uty6vh" path="res://art/mob_message_2.png" id="11_eqsov"]
+[ext_resource type="Texture2D" uid="uid://b1wun6gv2j213" path="res://art/mob_email_5.png" id="11_hpl8x"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nokgg"]
 
@@ -41,11 +47,53 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_p11y5")
+"texture": ExtResource("5_h0ign")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6ak38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rxhkm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mhy1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gy8bd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_srff1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_hpl8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_hpl8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_hpl8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_srff1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gy8bd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mhy1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rxhkm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6ak38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h0ign")
 }],
 "loop": true,
 "name": &"mob_email",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -83,7 +131,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"mob_message",
-"speed": 10.0
+"speed": 8.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nokgg"]
@@ -100,9 +148,8 @@ script = ExtResource("1_nokgg")
 texture_filter = 1
 position = Vector2(7.999996, 18)
 sprite_frames = SubResource("SpriteFrames_b3mxk")
-animation = &"mob_message"
-frame = 10
-frame_progress = 0.390758
+animation = &"mob_email"
+frame_progress = 0.4739617
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7, 23)
