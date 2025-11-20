@@ -29,6 +29,7 @@ func new_game():
 	$HUD.update_score(score)
 	$HUD.hide_logo()
 	$StartTimer.start()
+	isSpeed = false
 	$SpeedTimer.start()
 	
 
