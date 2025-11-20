@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfcusb2e5v2fj"]
+[gd_scene load_steps=7 format=3 uid="uid://bfcusb2e5v2fj"]
 
 [ext_resource type="Script" uid="uid://ckkeghwqjxvr0" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://b2yw21h5k8lbu" path="res://Player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cjm3ncdt7h05b" path="res://mob.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://xrrh4lyiryow" path="res://hud.tscn" id="4_1bvp3"]
+[ext_resource type="AudioStream" uid="uid://d0mf1s56223r5" path="res://sound/game_bgm_v3.mp3" id="5_lquwl"]
 
 [sub_resource type="Curve2D" id="Curve2D_7dm0k"]
 _data = {
@@ -42,6 +43,10 @@ rotation = 0.0010411242
 [node name="LaserContainer" type="Node2D" parent="."]
 
 [node name="HUD" parent="." instance=ExtResource("4_1bvp3")]
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_lquwl")
+parameters/looping = true
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

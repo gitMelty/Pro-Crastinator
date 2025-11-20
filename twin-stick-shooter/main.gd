@@ -9,7 +9,7 @@ var score
 
 func _ready():
 	$Player.hide()
-
+	$Music.play()
 
 
 var startpos = Vector2(960, 540)
