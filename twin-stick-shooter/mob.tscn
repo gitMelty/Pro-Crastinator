@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cjm3ncdt7h05b"]
+[gd_scene load_steps=15 format=3 uid="uid://cjm3ncdt7h05b"]
 
 [ext_resource type="Script" uid="uid://c7fb8oou6btwl" path="res://mob.gd" id="1_nokgg"]
 [ext_resource type="Texture2D" uid="uid://cwi67t11ew3cn" path="res://art/mob_clock.png" id="2_nokgg"]
@@ -6,6 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://c1narcafwhhkl" path="res://art/mob_clock_walk1.png" id="3_s5nov"]
 [ext_resource type="Texture2D" uid="uid://d4d8tkfegkfpi" path="res://art/mob_clock_walk2.png" id="4_b3mxk"]
 [ext_resource type="Texture2D" uid="uid://cee42walbgrj3" path="res://art/mob_message.png" id="4_s5nov"]
+[ext_resource type="Texture2D" uid="uid://c0gqqbotc8ime" path="res://art/mob_message_1.1.png" id="7_7ulmv"]
+[ext_resource type="Texture2D" uid="uid://ctjdgeaulnh7g" path="res://art/mob_message_1.2.png" id="8_pcqmr"]
+[ext_resource type="Texture2D" uid="uid://hkhqomrhsbvt" path="res://art/mob_message_1.3.png" id="9_jbnni"]
+[ext_resource type="Texture2D" uid="uid://dinmcgwctc6qn" path="res://art/mob_message_1.4.png" id="10_yscv0"]
+[ext_resource type="Texture2D" uid="uid://6hv5a6uty6vh" path="res://art/mob_message_2.png" id="11_eqsov"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nokgg"]
 
@@ -45,10 +50,40 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_s5nov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_s5nov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7ulmv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pcqmr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jbnni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_yscv0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_eqsov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_yscv0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jbnni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pcqmr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7ulmv")
 }],
 "loop": true,
 "name": &"mob_message",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nokgg"]
@@ -65,7 +100,9 @@ script = ExtResource("1_nokgg")
 texture_filter = 1
 position = Vector2(7.999996, 18)
 sprite_frames = SubResource("SpriteFrames_b3mxk")
-animation = &"mob_clock"
+animation = &"mob_message"
+frame = 10
+frame_progress = 0.390758
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7, 23)
