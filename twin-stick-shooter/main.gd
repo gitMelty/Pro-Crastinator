@@ -6,10 +6,12 @@ extends Node
 
 var player = null
 var score
+var isSpeed = false
 
 func _ready():
 	$Player.hide()
 	$Music.play()
+
 
 
 var startpos = Vector2(960, 540)
@@ -27,6 +29,7 @@ func new_game():
 	$HUD.update_score(score)
 	$HUD.hide_logo()
 	$StartTimer.start()
+	$SpeedTimer.start()
 	
 
 func _on_start_timer_timeout():
@@ -35,6 +38,7 @@ func _on_start_timer_timeout():
 
 func _on_mob_timer_timeout() -> void:
 	var mob = mob_scene.instantiate()
+	
 	
 	var mob_spawn_location = $MobPath/MobSpawnLocation
 	mob_spawn_location.progress_ratio = randf()
@@ -45,10 +49,11 @@ func _on_mob_timer_timeout() -> void:
 	
 	direction += randf_range(-PI / 4, PI / 4)
 	#mob.rotation = direction
-	
 	var velocity = Vector2(randf_range(150.0, 250.0), 0.0)
+	if isSpeed:
+		velocity += Vector2(randf_range(400, 550), 0.0)
 	mob.linear_velocity = velocity.rotated(direction)
-	
+
 	add_child(mob)
 
 func _on_player_laser_shot(laser_scene, location):
@@ -66,3 +71,6 @@ func game_over() -> void:
 	$HUD.show_game_over()
 	get_tree().call_group("mobs", "queue_free")
 	$HUD.show_logo()
+
+func _on_speed_timer_timeout() -> void:
+	isSpeed = true
