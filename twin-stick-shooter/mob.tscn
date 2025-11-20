@@ -101,6 +101,8 @@ texture_filter = 1
 position = Vector2(7.999996, 18)
 sprite_frames = SubResource("SpriteFrames_b3mxk")
 animation = &"mob_message"
+frame = 3
+frame_progress = 0.32251394
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7, 23)
