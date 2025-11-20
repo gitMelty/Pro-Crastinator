@@ -62,9 +62,10 @@ gravity_scale = 0.0
 script = ExtResource("1_nokgg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(7.999996, 18)
 sprite_frames = SubResource("SpriteFrames_b3mxk")
-animation = &"mob_message"
+animation = &"mob_clock"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7, 23)
