@@ -8,6 +8,9 @@ signal laser_shot(laser_scene, location)
 
 @export var speed = 400
 var pos = get_local_mouse_position() - position
+var shootTimer = 0.0
+var isShooting = false
+
 
 func start():
 	position = pos
@@ -24,8 +27,18 @@ func get_input(): #8-way movement with WASD
 	
 
 func _process(delta): #called every frame
-	if Input.is_action_just_pressed("shoot"): #shoot action
-		shoot()
+	if Input.is_action_pressed("shoot"): #shoot action
+		if isShooting: 
+			shootTimer += delta
+			if shootTimer > 0.5:
+				shoot()
+				shootTimer = 0
+		else:
+			shoot()
+			isShooting = true
+			shootTimer = 0
+	if Input.is_action_just_released("shoot"):
+		isShooting = false
 	get_input()
 
 
@@ -37,16 +50,14 @@ func get_rotate(): #rotation looking at mouse, can be changed to a more mobile f
 	rotation = get_global_mouse_position().angle_to_point(position)
 	velocity = transform.x * Input.get_axis("rotate_down", "rotate_up") * speed
 	#Flip
-	#if get_global_mouse_position().y > position.y: #&& $AnimatedSprite2D.is_flipped_h() == false:
-		#$AnimatedSprite2D.animation = "flipped"
+	if get_global_mouse_position().x > position.x: #&& $AnimatedSprite2D.is_flipped_h() == false:
+		$AnimatedSprite2D.animation = "flipped"
 	
-	#elif get_global_mouse_position().y < position.y: #&& $AnimatedSprite2D.is_flipped_h() == true:
-		#$AnimatedSprite2D.animation = "walk"
+	elif get_global_mouse_position().x < position.x: #&& $AnimatedSprite2D.is_flipped_h() == true:
+		$AnimatedSprite2D.animation = "walk"
 		
-	
 
 signal hit
-
 
 func  _on_area_2d_body_entered(_body: RigidBody2D) -> void:
 	#hiding the player and emitting hit signal when colliding with mobs
