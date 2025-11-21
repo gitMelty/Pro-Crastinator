@@ -19,7 +19,7 @@ mob_scene = ExtResource("2_h2yge")
 [node name="Background" type="ColorRect" parent="."]
 offset_right = 1929.0
 offset_bottom = 1088.0
-color = Color(0.14432764, 0.04120063, 0.56120265, 1)
+color = Color(0.06536341, 1.9853935e-05, 0.33600852, 1)
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(888, 506)
