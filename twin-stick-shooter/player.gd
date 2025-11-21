@@ -49,7 +49,7 @@ func _physics_process(_delta): #physics process called every frame
 func get_rotate(): #rotation looking at mouse, can be changed to a more mobile friendly version if anyone knows how
 	rotation = get_global_mouse_position().angle_to_point(position)
 	velocity = transform.x * Input.get_axis("rotate_down", "rotate_up") * speed
-	#Flip
+	#Flip character when looking to the other direction with the mouse
 	if get_global_mouse_position().x > position.x: #&& $AnimatedSprite2D.is_flipped_h() == false:
 		$AnimatedSprite2D.animation = "flipped"
 	
