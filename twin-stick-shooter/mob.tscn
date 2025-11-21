@@ -43,7 +43,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"mob_clock",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -148,8 +148,7 @@ script = ExtResource("1_nokgg")
 texture_filter = 1
 position = Vector2(7.999996, 18)
 sprite_frames = SubResource("SpriteFrames_b3mxk")
-animation = &"mob_email"
-frame_progress = 0.4739617
+animation = &"mob_clock"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7, 23)
