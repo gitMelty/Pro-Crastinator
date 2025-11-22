@@ -3,22 +3,23 @@
 [ext_resource type="Script" uid="uid://d1gjslltrhh0l" path="res://laser.gd" id="1_6vqwg"]
 [ext_resource type="Texture2D" uid="uid://cgonoj4n0xhef" path="res://art/laser_new.png" id="2_6vqwg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vqwg"]
-size = Vector2(58, 8)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6vqwg"]
+radius = 28.0
+height = 56.0
 
 [node name="Laser" type="Area2D"]
 light_mask = 2
 visibility_layer = 2
+texture_filter = 1
 script = ExtResource("1_6vqwg")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_6vqwg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_6vqwg")
+shape = SubResource("CapsuleShape2D_6vqwg")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
