@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfcusb2e5v2fj"]
+[gd_scene load_steps=8 format=3 uid="uid://bfcusb2e5v2fj"]
 
 [ext_resource type="Script" uid="uid://ckkeghwqjxvr0" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://b2yw21h5k8lbu" path="res://Player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cjm3ncdt7h05b" path="res://mob.tscn" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://duhh7cjo5hayp" path="res://art/background_blue.png" id="3_7mycd"]
 [ext_resource type="PackedScene" uid="uid://xrrh4lyiryow" path="res://hud.tscn" id="4_1bvp3"]
 [ext_resource type="AudioStream" uid="uid://d0mf1s56223r5" path="res://sound/game_bgm_v3.mp3" id="5_lquwl"]
 
@@ -16,10 +17,10 @@ point_count = 5
 script = ExtResource("1_0xm2m")
 mob_scene = ExtResource("2_h2yge")
 
-[node name="Background" type="ColorRect" parent="."]
-offset_right = 1929.0
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1920.0
 offset_bottom = 1088.0
-color = Color(0.06536341, 1.9853935e-05, 0.33600852, 1)
+texture = ExtResource("3_7mycd")
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(888, 506)
