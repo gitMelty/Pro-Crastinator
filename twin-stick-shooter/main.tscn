@@ -52,6 +52,9 @@ parameters/looping = true
 [node name="SpeedTimer" type="Timer" parent="."]
 wait_time = 60.0
 
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 300.0
+
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="hit" from="Player" to="." method="game_over"]
@@ -63,3 +66,4 @@ wait_time = 60.0
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="tree_exited" from="HUD" to="." method="_on_hud_tree_exited"]
 [connection signal="timeout" from="SpeedTimer" to="." method="_on_speed_timer_timeout"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

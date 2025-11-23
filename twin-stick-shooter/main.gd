@@ -11,10 +11,17 @@ var isSpeed = false
 func _ready():
 	$Player.hide()
 	$Music.play()
+	$GameTimer.start()
 
-
+func _process(delta):
+	#playersprite()
+	pass
 
 var startpos = Vector2(960, 540)
+
+#func playersprite():
+	#$playersprite.global_position = $Player.global_position
+	
 
 func shoot():
 	Input.action_press("shoot")
@@ -75,3 +82,7 @@ func game_over() -> void: #call function when player loses
 
 func _on_speed_timer_timeout() -> void: #function if mobs become faster
 	isSpeed = true
+
+
+func _on_game_timer_timeout() -> void:
+	get_tree().quit()

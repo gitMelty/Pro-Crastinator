@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckv4rtxrspkyu"]
+
+[ext_resource type="Texture2D" uid="uid://bfj2n2c8lucec" path="res://art/player.png" id="1_1gx1o"]
+[ext_resource type="Texture2D" uid="uid://ct2ge0o7orxk4" path="res://art/player_flipped.png" id="1_jqh1o"]
+[ext_resource type="Script" uid="uid://ci8wqg1um7ql1" path="res://playersprite.gd" id="2_xl8rx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jqh1o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jqh1o")
+}],
+"loop": true,
+"name": &"flipped",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1gx1o")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="playersprite" type="CharacterBody2D"]
+script = ExtResource("2_xl8rx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.196, 0.2)
+sprite_frames = SubResource("SpriteFrames_jqh1o")
+animation = &"walk"
