@@ -7,6 +7,7 @@ extends Node
 var player = null
 var score
 var isSpeed = false
+var gameActive = false
 
 func _ready():
 	$Player.hide()
@@ -38,7 +39,7 @@ func new_game(): #called when pressing "start game" button
 	$StartTimer.start()
 	isSpeed = false
 	$SpeedTimer.start()
-	
+	gameActive = true
 
 func _on_start_timer_timeout():
 	$MobTimer.start()
@@ -66,19 +67,22 @@ func _on_mob_timer_timeout() -> void: #mob spawn function, called every time mob
 
 func _on_player_laser_shot(laser_scene, location):
 	var laser = laser_scene.instantiate()
-	laser_container.owner.add_child(laser)
+	if gameActive:
+		laser_container.owner.add_child(laser)
 	laser.global_position = location
 	laser.transform = $Player/Muzzle.global_transform
 
 func _on_child_exiting_tree(_body: RigidBody2D) -> void: #add score when mob exits main scene tree
-	score += 1
-	$HUD.update_score(score)
+	score += 10
+	if gameActive:
+		$HUD.update_score(score)
 
 func game_over() -> void: #call function when player loses
 	$MobTimer.stop()
 	$HUD.show_game_over()
 	get_tree().call_group("mobs", "queue_free")
 	$HUD.show_logo()
+	gameActive = false
 
 func _on_speed_timer_timeout() -> void: #function if mobs become faster
 	isSpeed = true
