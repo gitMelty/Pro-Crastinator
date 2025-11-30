@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://u1uf4oawsbvt"]
+
+[ext_resource type="Texture2D" uid="uid://degwfhmk33ukh" path="res://art/speedup.png" id="1_7hnyi"]
+[ext_resource type="Script" uid="uid://dfxtmulnfyoqa" path="res://speed_up.gd" id="1_sbcyl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sbcyl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7hnyi")
+}],
+"loop": true,
+"name": &"speedup",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7hnyi"]
+radius = 128.0039
+
+[node name="SpeedUp" type="Area2D" groups=["powerups"]]
+script = ExtResource("1_sbcyl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sbcyl")
+animation = &"speedup"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7hnyi")
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

@@ -1,8 +1,11 @@
 extends Node
 
+#@export var speed_up_scene: Node
 @export var mob_scene: PackedScene
 @export var laser_scene: Node
 @onready var laser_container = $LaserContainer
+@onready var powerup_container = $PowerupContainer
+var speed_up_scene = preload("res://speed_up.tscn")
 
 var player = null
 var score
@@ -39,6 +42,7 @@ func new_game(): #called when pressing "start game" button
 	$StartTimer.start()
 	isSpeed = false
 	$SpeedTimer.start()
+	$PowerupTimer.start()
 	gameActive = true
 
 func _on_start_timer_timeout():
@@ -81,7 +85,9 @@ func game_over() -> void: #call function when player loses
 	$MobTimer.stop()
 	$HUD.show_game_over()
 	get_tree().call_group("mobs", "queue_free")
+	get_tree().call_group("powerups", "queue_free")
 	$HUD.show_logo()
+	$PowerupTimer.stop()
 	gameActive = false
 
 func _on_speed_timer_timeout() -> void: #function if mobs become faster
@@ -90,3 +96,25 @@ func _on_speed_timer_timeout() -> void: #function if mobs become faster
 
 func _on_game_timer_timeout() -> void:
 	get_tree().quit()
+
+
+func _on_powerup_timer_timeout() -> void:
+	await get_tree().create_timer(randf_range(10,25)).timeout
+	
+	var powerup = speed_up_scene.instantiate()
+	if gameActive:
+		powerup_container.owner.add_child(powerup)
+	
+	var powerup_spawn_location = $PowerupPath/PowerupSpawnLocation
+	powerup_spawn_location.progress_ratio = randf()
+	
+	powerup.position = powerup_spawn_location.position
+	
+	await get_tree().create_timer(15).timeout
+	
+	$PowerupTimer.start()
+
+
+
+func _on_player_getspeed() -> void:
+	get_tree().call_group("powerups", "queue_free")

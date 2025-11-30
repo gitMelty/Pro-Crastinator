@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfcusb2e5v2fj"]
+[gd_scene load_steps=9 format=3 uid="uid://bfcusb2e5v2fj"]
 
 [ext_resource type="Script" uid="uid://ckkeghwqjxvr0" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://b2yw21h5k8lbu" path="res://Player.tscn" id="1_ig7tw"]
@@ -12,6 +12,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -1, -3, 0, 0, 0, 0, 1920, -1, 0, 0, 0, 0, 1917, 1075, 0, 0, 0, 0, -1, 1077, 0, 0, 0, 0, -1, -3)
 }
 point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_7mycd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 131, 986, 0, 0, 0, 0, 521, 120, 0, 0, 0, 0, 830, 975, 0, 0, 0, 0, 1173, 163, 0, 0, 0, 0, 1495, 991, 0, 0, 0, 0, 1782, 177)
+}
+point_count = 6
 
 [node name="Main" type="Node"]
 script = ExtResource("1_0xm2m")
@@ -55,8 +61,24 @@ wait_time = 60.0
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 300.0
 
+[node name="PowerupPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_7mycd")
+
+[node name="PowerupSpawnLocation" type="PathFollow2D" parent="PowerupPath"]
+position = Vector2(131, 986)
+rotation = -1.1476543
+
+[node name="PowerupPosition" type="Marker2D" parent="."]
+position = Vector2(480, 529)
+
+[node name="PowerupTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PowerupContainer" type="Node2D" parent="."]
+
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="getspeed" from="Player" to="." method="_on_player_getspeed"]
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="laser_shot" from="Player" to="." method="_on_player_laser_shot"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
@@ -67,3 +89,4 @@ wait_time = 300.0
 [connection signal="tree_exited" from="HUD" to="." method="_on_hud_tree_exited"]
 [connection signal="timeout" from="SpeedTimer" to="." method="_on_speed_timer_timeout"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
+[connection signal="timeout" from="PowerupTimer" to="." method="_on_powerup_timer_timeout"]

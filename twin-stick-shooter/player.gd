@@ -6,10 +6,11 @@ signal laser_shot(laser_scene, location)
 
 @onready var muzzle = $Muzzle
 
-@export var speed = 400
+@export var speed = 500
 var pos = get_local_mouse_position() - position
 var shootTimer = 0.0
 var isShooting = false
+var speedMode = false
 
 
 func start():
@@ -45,6 +46,7 @@ func _process(delta): #called every frame
 func _physics_process(_delta): #physics process called every frame
 	move_and_slide()
 	get_rotate()
+	get_speed()
 
 func get_rotate(): #rotation looking at mouse, can be changed to a more mobile friendly version if anyone knows how
 	rotation = get_global_mouse_position().angle_to_point(position)
@@ -63,10 +65,19 @@ func  _on_area_2d_body_entered(_body: RigidBody2D) -> void:
 	#hiding the player and emitting hit signal when colliding with mobs
 	hide()
 	hit.emit()
+	speedMode = false
 	#$CollisionShape2D.set_deferred("disabled", true)
 
+func get_speed():
+	if speedMode:
+		speed = 800
+	else:
+		speed = 500
 
-func _on_area_2d_area_entered(_body: RigidBody2D) -> void:
-	$Player.hide()
-	hit.emit()
-	#$CollisionShape2D.set_deferred("disabled", true)
+signal getspeed
+
+func _on_area_2d_area_entered(_body: Area2D) -> void:
+	speedMode = true
+	getspeed.emit()
+	await get_tree().create_timer(10).timeout
+	speedMode = false
