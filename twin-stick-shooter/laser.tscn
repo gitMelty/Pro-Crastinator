@@ -1,11 +1,76 @@
-[gd_scene load_steps=4 format=3 uid="uid://df1ph6b7w1py4"]
+[gd_scene load_steps=11 format=3 uid="uid://df1ph6b7w1py4"]
 
 [ext_resource type="Script" uid="uid://d1gjslltrhh0l" path="res://laser.gd" id="1_6vqwg"]
-[ext_resource type="Texture2D" uid="uid://cgonoj4n0xhef" path="res://art/laser_new.png" id="2_6vqwg"]
+[ext_resource type="Texture2D" uid="uid://cp652yffh1lgr" path="res://art/laser_black.png" id="2_3gdm7"]
+[ext_resource type="Texture2D" uid="uid://cpftqfli2hx6s" path="res://art/laser_heart.png" id="2_6vqwg"]
+[ext_resource type="Texture2D" uid="uid://bnvrv4pmk10l3" path="res://art/laser_blue.png" id="3_yfymw"]
+[ext_resource type="Texture2D" uid="uid://cn0uy3px8ybq" path="res://art/laser_church.png" id="4_wyhtk"]
+[ext_resource type="Texture2D" uid="uid://0lmvaqwp0w4f" path="res://art/laser_peace.png" id="6_7e0re"]
+[ext_resource type="Texture2D" uid="uid://b3p3873yrjh3v" path="res://art/laser_posankka.png" id="7_sh4yq"]
+[ext_resource type="Texture2D" uid="uid://cik1o464csey1" path="res://art/laser_river.png" id="8_l120w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g6b45"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3gdm7")
+}],
+"loop": true,
+"name": &"black",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_yfymw")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wyhtk")
+}],
+"loop": true,
+"name": &"church",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6vqwg")
+}],
+"loop": true,
+"name": &"heart",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_7e0re")
+}],
+"loop": true,
+"name": &"peace",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_sh4yq")
+}],
+"loop": true,
+"name": &"posankka",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_l120w")
+}],
+"loop": true,
+"name": &"river",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6vqwg"]
-radius = 28.0
-height = 56.0
+radius = 37.0
+height = 74.0
 
 [node name="Laser" type="Area2D"]
 light_mask = 2
@@ -14,9 +79,11 @@ texture_filter = 1
 script = ExtResource("1_6vqwg")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_6vqwg")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_g6b45")
+animation = &"heart"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6vqwg")
