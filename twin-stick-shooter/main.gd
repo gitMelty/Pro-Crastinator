@@ -11,6 +11,7 @@ var player = null
 var score
 var isSpeed = false
 var gameActive = false
+var pointsUp = false
 
 func _ready():
 	$Player.hide()
@@ -77,7 +78,10 @@ func _on_player_laser_shot(laser_scene, location):
 	laser.transform = $Player/Muzzle.global_transform
 
 func _on_child_exiting_tree(_body: RigidBody2D) -> void: #add score when mob exits main scene tree
-	score += 10
+	if pointsUp:
+		score += 50
+	else:
+		score += 10
 	if gameActive:
 		$HUD.update_score(score)
 
@@ -89,6 +93,7 @@ func game_over() -> void: #call function when player loses
 	$HUD.show_logo()
 	$PowerupTimer.stop()
 	gameActive = false
+	pointsUp = false
 
 func _on_speed_timer_timeout() -> void: #function if mobs become faster
 	isSpeed = true
@@ -99,7 +104,7 @@ func _on_game_timer_timeout() -> void:
 
 
 func _on_powerup_timer_timeout() -> void:
-	await get_tree().create_timer(randf_range(10,25)).timeout
+	await get_tree().create_timer(randf_range(15,30)).timeout
 	
 	var powerup = speed_up_scene.instantiate()
 	if gameActive:
@@ -118,3 +123,6 @@ func _on_powerup_timer_timeout() -> void:
 
 func _on_player_getspeed() -> void:
 	get_tree().call_group("powerups", "queue_free")
+	pointsUp = true
+	await get_tree().create_timer(10).timeout
+	pointsUp = false

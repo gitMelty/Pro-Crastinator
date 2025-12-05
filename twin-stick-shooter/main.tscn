@@ -81,6 +81,7 @@ one_shot = true
 [connection signal="getspeed" from="Player" to="." method="_on_player_getspeed"]
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="laser_shot" from="Player" to="." method="_on_player_laser_shot"]
+[connection signal="pointmult" from="Player" to="." method="_on_player_pointmult"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="tree_exited" from="MobPath" to="." method="_on_mob_path_tree_exited"]
