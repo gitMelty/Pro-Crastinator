@@ -70,7 +70,7 @@ func  _on_area_2d_body_entered(_body: RigidBody2D) -> void:
 
 func get_speed():
 	if speedMode:
-		speed = 800
+		speed = 700
 	else:
 		speed = 500
 
