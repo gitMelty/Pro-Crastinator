@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://b2yw21h5k8lbu"]
 
 [ext_resource type="Script" uid="uid://bxuenpsqti65i" path="res://player.gd" id="1_kpjcp"]
-[ext_resource type="Texture2D" uid="uid://ct2ge0o7orxk4" path="res://art/player_flipped.png" id="2_kne1u"]
-[ext_resource type="Texture2D" uid="uid://bfj2n2c8lucec" path="res://art/player.png" id="2_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://dp0frhl5g4iti" path="res://art/player_violet_flipped.png" id="2_kne1u"]
+[ext_resource type="Texture2D" uid="uid://bugnhc6y2wq6w" path="res://art/player_violet.png" id="3_e80uo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dtqjt"]
 animations = [{
@@ -21,7 +21,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_kpjcp")
+"texture": ExtResource("3_e80uo")
 }],
 "loop": true,
 "name": &"walk",
@@ -42,7 +42,7 @@ texture_filter = 1
 position = Vector2(-1, 0)
 scale = Vector2(0.19583334, 0.2)
 sprite_frames = SubResource("SpriteFrames_dtqjt")
-animation = &"walk"
+animation = &"flipped"
 
 [node name="Area2D" type="Area2D" parent="."]
 
