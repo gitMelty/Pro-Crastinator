@@ -9,5 +9,5 @@ func _ready():
 	$AnimatedSprite2D.play()
 
 
-func _on_body_entered(body: Node) -> void:
-	pass # Replace with function body.
+func _on_body_entered(body: Area2D) -> void:
+	pass

@@ -19,8 +19,7 @@ func _ready():
 	$GameTimer.start()
 
 func _process(delta):
-	#playersprite()
-	pass
+	game_timer()
 
 var startpos = Vector2(960, 540)
 
@@ -84,9 +83,12 @@ func _on_child_exiting_tree(_body: RigidBody2D) -> void: #add score when mob exi
 		score += 10
 	if gameActive:
 		$HUD.update_score(score)
+	if gameActive:
+		$EnemyDeath.play()
 
 func game_over() -> void: #call function when player loses
 	$MobTimer.stop()
+	$GameOverSound.play()
 	$HUD.show_game_over()
 	get_tree().call_group("mobs", "queue_free")
 	get_tree().call_group("powerups", "queue_free")
@@ -126,3 +128,53 @@ func _on_player_getspeed() -> void:
 	pointsUp = true
 	await get_tree().create_timer(10).timeout
 	pointsUp = false
+
+
+func _on_hud_purple() -> void:
+	#emit_signal("changepurple")
+	$Player/AnimatedSprite2D.show()
+	$Player/AnimatedSprite2D2.hide()
+
+
+func _on_hud_yellow() -> void:
+	#emit_signal("changeyellow")
+	$Player/AnimatedSprite2D.hide()
+	$Player/AnimatedSprite2D2.show()
+
+var five = false
+var ten = false
+var fifteen = false
+
+func _on_hud_fivetimer() -> void:
+	$Timer5.start()
+	$GameTimer.stop()
+	five = true
+
+func _on_hud_tentimer() -> void:
+	$Timer10.start()
+	$GameTimer.stop()
+	ten = true
+
+func _on_hud_fifteentimer() -> void:
+	$Timer15.start()
+	fifteen = true
+	$GameTimer.stop()
+
+func _on_timer_5_timeout() -> void:
+	get_tree().quit()
+
+func _on_timer_10_timeout() -> void:
+	get_tree().quit()
+
+func _on_timer_15_timeout() -> void:
+	get_tree().quit()
+
+func game_timer():
+	if five:
+		$TimeRemaining.set_text(str($Timer5.get_time_left()).pad_decimals(1))
+	if ten:
+		$TimeRemaining.set_text(str($Timer10.get_time_left()).pad_decimals(1))
+	if fifteen:
+		$TimeRemaining.set_text(str($Timer15.get_time_left()).pad_decimals(1))
+	else:
+		pass

@@ -15,6 +15,7 @@ func _ready() -> void:
 	var laser_types = Array($AnimatedSprite2D.sprite_frames.get_animation_names())
 	$AnimatedSprite2D.animation = laser_types.pick_random()
 	$AnimatedSprite2D.play()
+	$LaserSound.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

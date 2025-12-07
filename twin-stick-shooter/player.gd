@@ -58,6 +58,13 @@ func get_rotate(): #rotation looking at mouse, can be changed to a more mobile f
 	elif get_global_mouse_position().x < position.x: #&& $AnimatedSprite2D.is_flipped_h() == true:
 		$AnimatedSprite2D.animation = "walk"
 		
+	if get_global_mouse_position().x > position.x: #&& $AnimatedSprite2D.is_flipped_h() == false:
+		$AnimatedSprite2D2.animation = "flipped"
+	
+	elif get_global_mouse_position().x < position.x: #&& $AnimatedSprite2D.is_flipped_h() == true:
+		$AnimatedSprite2D2.animation = "walk"
+
+
 
 signal hit
 
@@ -77,7 +84,9 @@ func get_speed():
 signal getspeed
 
 func _on_area_2d_area_entered(_body: Area2D) -> void:
-	speedMode = true
-	getspeed.emit()
-	await get_tree().create_timer(10).timeout
-	speedMode = false
+	if _body.is_in_group("powerups"):
+		speedMode = true
+		getspeed.emit()
+		$PowerUp.play()
+		await get_tree().create_timer(10).timeout
+		speedMode = false

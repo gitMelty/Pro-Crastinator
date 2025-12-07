@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://xrrh4lyiryow"]
+[gd_scene load_steps=8 format=3 uid="uid://xrrh4lyiryow"]
 
 [ext_resource type="Script" uid="uid://cu4vrthambo2w" path="res://hud.gd" id="1_37p78"]
 [ext_resource type="FontFile" uid="uid://c0xg187istqbw" path="res://SuperPixel-m2L8j.ttf" id="2_8sq4i"]
 [ext_resource type="Texture2D" uid="uid://bfxlrro7qcih2" path="res://art/logo.png" id="2_64ctp"]
 [ext_resource type="FontFile" uid="uid://humobsa6oho6" path="res://Pixel-digivolve.ttf" id="3_640wx"]
+[ext_resource type="Texture2D" uid="uid://baab0whhs1pyr" path="res://art/yellow_icon.png" id="5_1xsix"]
+[ext_resource type="Texture2D" uid="uid://dckr4mmmt8t4c" path="res://art/purple_icon.png" id="6_rftc2"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_rftc2"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_37p78")
@@ -81,5 +85,115 @@ texture = ExtResource("2_64ctp")
 [node name="LogoTimer" type="Timer" parent="."]
 wait_time = 3.0
 
+[node name="ColorButton" type="OptionButton" parent="."]
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 201.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("2_8sq4i")
+button_group = SubResource("ButtonGroup_rftc2")
+selected = 2
+item_count = 3
+popup/item_0/text = "Yellow"
+popup/item_0/icon = ExtResource("5_1xsix")
+popup/item_0/id = 0
+popup/item_1/text = "Purple"
+popup/item_1/icon = ExtResource("6_rftc2")
+popup/item_1/id = 1
+popup/item_2/text = "Select Color"
+popup/item_2/id = 2
+popup/item_2/separator = true
+
+[node name="TimerNode" type="Node" parent="."]
+
+[node name="Timer15Button" type="Button" parent="TimerNode"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 158.0
+offset_top = -14.0
+offset_right = 260.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0.9529412, 0.72156864, 0.28627452, 1)
+theme_override_colors/font_pressed_color = Color(0.9525334, 0.9779132, 0.9988902, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9137255, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.9137255, 0, 1)
+theme_override_fonts/font = ExtResource("3_640wx")
+text = "15 minutes"
+
+[node name="Timer10Button" type="Button" parent="TimerNode"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -14.0
+offset_right = 51.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.9529412, 0.72156864, 0.28627452, 1)
+theme_override_colors/font_pressed_color = Color(0.9525334, 0.9779132, 0.9988902, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9137255, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.9137255, 0, 1)
+theme_override_fonts/font = ExtResource("3_640wx")
+text = "10 Minutes"
+
+[node name="Timer5Button" type="Button" parent="TimerNode"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.0
+offset_top = -14.0
+offset_right = -151.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0.9529412, 0.72156864, 0.28627452, 1)
+theme_override_colors/font_pressed_color = Color(0.9525334, 0.9779132, 0.9988902, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9137255, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.9137255, 0, 1)
+theme_override_fonts/font = ExtResource("3_640wx")
+text = "5 Minutes"
+
+[node name="ChooseTimer" type="Label" parent="TimerNode"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -90.0
+offset_right = 14.0
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+theme_override_colors/font_color = Color(0.9529412, 0.72156864, 0.28627452, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7529412)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_640wx")
+text = "Choose your timer!"
+
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="item_selected" from="ColorButton" to="." method="_on_color_button_item_selected"]
+[connection signal="pressed" from="TimerNode/Timer15Button" to="." method="_on_timer_15_button_pressed"]
+[connection signal="pressed" from="TimerNode/Timer10Button" to="." method="_on_timer_10_button_pressed"]
+[connection signal="pressed" from="TimerNode/Timer5Button" to="." method="_on_timer_5_button_pressed"]
