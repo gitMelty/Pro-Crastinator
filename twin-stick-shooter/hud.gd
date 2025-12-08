@@ -48,6 +48,12 @@ func _on_message_timer_timeout() -> void:
 
 signal yellow
 signal purple
+signal black
+signal blue
+signal cherry
+signal cyan
+signal pink
+signal red
 signal fivetimer
 signal tentimer
 signal fifteentimer
@@ -56,6 +62,12 @@ func _on_color_button_item_selected(id: int) -> void:
 	match id:
 		0: emit_signal("yellow")
 		1: emit_signal("purple")
+		2: emit_signal("black")
+		3: emit_signal("blue")
+		4: emit_signal("cherry")
+		5: emit_signal("cyan")
+		6: emit_signal("pink")
+		7: emit_signal("red")
 
 func _on_timer_5_button_pressed() -> void:
 	emit_signal("fivetimer")

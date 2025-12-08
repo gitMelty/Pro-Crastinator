@@ -63,7 +63,42 @@ func get_rotate(): #rotation looking at mouse, can be changed to a more mobile f
 	
 	elif get_global_mouse_position().x < position.x: #&& $AnimatedSprite2D.is_flipped_h() == true:
 		$AnimatedSprite2D2.animation = "walk"
-
+		
+	if get_global_mouse_position().x > position.x: #&& $AnimatedSprite2D.is_flipped_h() == false:
+		$SpriteBlack.animation = "flipped"
+	
+	elif get_global_mouse_position().x < position.x: #&& $AnimatedSprite2D.is_flipped_h() == true:
+		$SpriteBlack.animation = "walk"
+		
+	if get_global_mouse_position().x > position.x: #&& $AnimatedSprite2D.is_flipped_h() == false:
+		$SpriteBlue.animation = "flipped"
+	
+	elif get_global_mouse_position().x < position.x: #&& $AnimatedSprite2D.is_flipped_h() == true:
+		$SpriteBlue.animation = "walk"
+		
+	if get_global_mouse_position().x > position.x: #&& $AnimatedSprite2D.is_flipped_h() == false:
+		$SpriteCherry.animation = "flipped"
+	
+	elif get_global_mouse_position().x < position.x: #&& $AnimatedSprite2D.is_flipped_h() == true:
+		$SpriteCherry.animation = "walk"
+		
+	if get_global_mouse_position().x > position.x: #&& $AnimatedSprite2D.is_flipped_h() == false:
+		$SpriteCyan.animation = "flipped"
+	
+	elif get_global_mouse_position().x < position.x: #&& $AnimatedSprite2D.is_flipped_h() == true:
+		$SpriteCyan.animation = "walk"
+		
+	if get_global_mouse_position().x > position.x: #&& $AnimatedSprite2D.is_flipped_h() == false:
+		$SpritePink.animation = "flipped"
+	
+	elif get_global_mouse_position().x < position.x: #&& $AnimatedSprite2D.is_flipped_h() == true:
+		$SpritePink.animation = "walk"
+		
+	if get_global_mouse_position().x > position.x: #&& $AnimatedSprite2D.is_flipped_h() == false:
+		$SpriteRed.animation = "flipped"
+	
+	elif get_global_mouse_position().x < position.x: #&& $AnimatedSprite2D.is_flipped_h() == true:
+		$SpriteRed.animation = "walk"
 
 
 signal hit

@@ -131,15 +131,25 @@ func _on_player_getspeed() -> void:
 
 
 func _on_hud_purple() -> void:
-	#emit_signal("changepurple")
 	$Player/AnimatedSprite2D.show()
 	$Player/AnimatedSprite2D2.hide()
+	$Player/SpriteBlack.hide()
+	$Player/SpriteBlue.hide()
+	$Player/SpriteCherry.hide()
+	$Player/SpriteCyan.hide()
+	$Player/SpritePink.hide()
+	$Player/SpriteRed.hide()
 
 
 func _on_hud_yellow() -> void:
-	#emit_signal("changeyellow")
 	$Player/AnimatedSprite2D.hide()
 	$Player/AnimatedSprite2D2.show()
+	$Player/SpriteBlack.hide()
+	$Player/SpriteBlue.hide()
+	$Player/SpriteCherry.hide()
+	$Player/SpriteCyan.hide()
+	$Player/SpritePink.hide()
+	$Player/SpriteRed.hide()
 
 var five = false
 var ten = false
@@ -178,3 +188,71 @@ func game_timer():
 		$TimeRemaining.set_text(str($Timer15.get_time_left()).pad_decimals(1))
 	else:
 		pass
+
+
+func _on_hud_black() -> void:
+	$Player/AnimatedSprite2D.hide()
+	$Player/AnimatedSprite2D2.hide()
+	$Player/SpriteBlack.show()
+	$Player/SpriteBlue.hide()
+	$Player/SpriteCherry.hide()
+	$Player/SpriteCyan.hide()
+	$Player/SpritePink.hide()
+	$Player/SpriteRed.hide()
+
+
+
+func _on_hud_blue() -> void:
+	$Player/AnimatedSprite2D.hide()
+	$Player/AnimatedSprite2D2.hide()
+	$Player/SpriteBlack.hide()
+	$Player/SpriteBlue.show()
+	$Player/SpriteCherry.hide()
+	$Player/SpriteCyan.hide()
+	$Player/SpritePink.hide()
+	$Player/SpriteRed.hide()
+
+
+func _on_hud_cherry() -> void:
+	$Player/AnimatedSprite2D.hide()
+	$Player/AnimatedSprite2D2.hide()
+	$Player/SpriteBlack.hide()
+	$Player/SpriteBlue.hide()
+	$Player/SpriteCherry.show()
+	$Player/SpriteCyan.hide()
+	$Player/SpritePink.hide()
+	$Player/SpriteRed.hide()
+
+
+
+func _on_hud_cyan() -> void:
+	$Player/AnimatedSprite2D.hide()
+	$Player/AnimatedSprite2D2.hide()
+	$Player/SpriteBlack.hide()
+	$Player/SpriteBlue.hide()
+	$Player/SpriteCherry.hide()
+	$Player/SpriteCyan.show()
+	$Player/SpritePink.hide()
+	$Player/SpriteRed.hide()
+
+
+func _on_hud_pink() -> void:
+	$Player/AnimatedSprite2D.hide()
+	$Player/AnimatedSprite2D2.hide()
+	$Player/SpriteBlack.hide()
+	$Player/SpriteBlue.hide()
+	$Player/SpriteCherry.hide()
+	$Player/SpriteCyan.hide()
+	$Player/SpritePink.show()
+	$Player/SpriteRed.hide()
+
+
+func _on_hud_red() -> void:
+	$Player/AnimatedSprite2D.hide()
+	$Player/AnimatedSprite2D2.hide()
+	$Player/SpriteBlack.hide()
+	$Player/SpriteBlue.hide()
+	$Player/SpriteCherry.hide()
+	$Player/SpriteCyan.hide()
+	$Player/SpritePink.hide()
+	$Player/SpriteRed.show()

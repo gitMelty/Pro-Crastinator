@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://xrrh4lyiryow"]
+[gd_scene load_steps=14 format=3 uid="uid://xrrh4lyiryow"]
 
 [ext_resource type="Script" uid="uid://cu4vrthambo2w" path="res://hud.gd" id="1_37p78"]
 [ext_resource type="FontFile" uid="uid://c0xg187istqbw" path="res://SuperPixel-m2L8j.ttf" id="2_8sq4i"]
@@ -6,6 +6,12 @@
 [ext_resource type="FontFile" uid="uid://humobsa6oho6" path="res://Pixel-digivolve.ttf" id="3_640wx"]
 [ext_resource type="Texture2D" uid="uid://baab0whhs1pyr" path="res://art/yellow_icon.png" id="5_1xsix"]
 [ext_resource type="Texture2D" uid="uid://dckr4mmmt8t4c" path="res://art/purple_icon.png" id="6_rftc2"]
+[ext_resource type="Texture2D" uid="uid://da2y2k7p3dtqe" path="res://art/black_icon.png" id="7_1fv7p"]
+[ext_resource type="Texture2D" uid="uid://cr2wkon20dprq" path="res://art/blue_icon.png" id="8_4u2vk"]
+[ext_resource type="Texture2D" uid="uid://ce4a1pawt3rlh" path="res://art/cherry_icon.png" id="9_4q17s"]
+[ext_resource type="Texture2D" uid="uid://rhn7dgl6b745" path="res://art/cyan_icon.png" id="10_2d608"]
+[ext_resource type="Texture2D" uid="uid://cr5rm5x1hnqhr" path="res://art/pink_icon.png" id="11_w71nf"]
+[ext_resource type="Texture2D" uid="uid://604pk3jwrxpp" path="res://art/red_icon.png" id="12_615i1"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_rftc2"]
 
@@ -92,17 +98,35 @@ offset_right = 201.0
 offset_bottom = 66.0
 theme_override_fonts/font = ExtResource("2_8sq4i")
 button_group = SubResource("ButtonGroup_rftc2")
-selected = 2
-item_count = 3
+selected = 8
+item_count = 9
 popup/item_0/text = "Yellow"
 popup/item_0/icon = ExtResource("5_1xsix")
 popup/item_0/id = 0
 popup/item_1/text = "Purple"
 popup/item_1/icon = ExtResource("6_rftc2")
 popup/item_1/id = 1
-popup/item_2/text = "Select Color"
+popup/item_2/text = "Black"
+popup/item_2/icon = ExtResource("7_1fv7p")
 popup/item_2/id = 2
-popup/item_2/separator = true
+popup/item_3/text = "Blue"
+popup/item_3/icon = ExtResource("8_4u2vk")
+popup/item_3/id = 3
+popup/item_4/text = "Cherry"
+popup/item_4/icon = ExtResource("9_4q17s")
+popup/item_4/id = 4
+popup/item_5/text = "Cyan"
+popup/item_5/icon = ExtResource("10_2d608")
+popup/item_5/id = 5
+popup/item_6/text = "Pink"
+popup/item_6/icon = ExtResource("11_w71nf")
+popup/item_6/id = 6
+popup/item_7/text = "Red"
+popup/item_7/icon = ExtResource("12_615i1")
+popup/item_7/id = 7
+popup/item_8/text = "Select Color"
+popup/item_8/id = 8
+popup/item_8/separator = true
 
 [node name="TimerNode" type="Node" parent="."]
 
