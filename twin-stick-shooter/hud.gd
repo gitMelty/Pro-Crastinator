@@ -62,12 +62,12 @@ func _on_color_button_item_selected(id: int) -> void:
 	match id:
 		0: emit_signal("yellow")
 		1: emit_signal("purple")
-		2: emit_signal("black")
-		3: emit_signal("blue")
-		4: emit_signal("cherry")
-		5: emit_signal("cyan")
-		6: emit_signal("pink")
-		7: emit_signal("red")
+		2: emit_signal("red")
+		3: emit_signal("pink")
+		4: emit_signal("cyan")
+		5: emit_signal("blue")
+		6: emit_signal("cherry")
+		7: emit_signal("black")
 
 func _on_timer_5_button_pressed() -> void:
 	emit_signal("fivetimer")
