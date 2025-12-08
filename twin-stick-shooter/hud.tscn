@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://xrrh4lyiryow"]
+[gd_scene load_steps=15 format=3 uid="uid://xrrh4lyiryow"]
 
 [ext_resource type="Script" uid="uid://cu4vrthambo2w" path="res://hud.gd" id="1_37p78"]
 [ext_resource type="FontFile" uid="uid://c0xg187istqbw" path="res://SuperPixel-m2L8j.ttf" id="2_8sq4i"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://rhn7dgl6b745" path="res://art/cyan_icon.png" id="10_2d608"]
 [ext_resource type="Texture2D" uid="uid://cr5rm5x1hnqhr" path="res://art/pink_icon.png" id="11_w71nf"]
 [ext_resource type="Texture2D" uid="uid://604pk3jwrxpp" path="res://art/red_icon.png" id="12_615i1"]
+[ext_resource type="Texture2D" uid="uid://b2hkc64puuput" path="res://art/timer icon.png" id="13_4u2vk"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_rftc2"]
 
@@ -214,6 +215,11 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7529412)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_640wx")
 text = "Choose your timer!"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1883, 32)
+texture = ExtResource("13_4u2vk")
 
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
