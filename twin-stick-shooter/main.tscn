@@ -12,9 +12,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_7dm0k"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1, -3, 0, 0, 0, 0, 1920, -1, 0, 0, 0, 0, 1917, 1075, 0, 0, 0, 0, -1, 1077, 0, 0, 0, 0, -1, -3)
+"points": PackedVector2Array(0, 0, 0, 0, -1, -3, 0, 0, 0, 0, 260, -2, 0, 0, 0, 0, 1920, -1, 0, 0, 0, 0, 1917, 1075, 0, 0, 0, 0, -1, 1077, 0, 0, 0, 0, -1, -3)
 }
-point_count = 5
+point_count = 6
 
 [sub_resource type="Curve2D" id="Curve2D_7mycd"]
 _data = {
@@ -35,6 +35,8 @@ texture = ExtResource("3_7mycd")
 position = Vector2(888, 506)
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+motion_mode = 1
+platform_wall_layers = 255
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 5.0
@@ -48,7 +50,7 @@ curve = SubResource("Curve2D_7dm0k")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 position = Vector2(-1, -3)
-rotation = 0.0010411242
+rotation = 0.003831399
 
 [node name="LaserContainer" type="Node2D" parent="."]
 

@@ -67,7 +67,8 @@ func _on_mob_timer_timeout() -> void: #mob spawn function, called every time mob
 		velocity += Vector2(randf_range(300, 450), 0.0)
 	mob.linear_velocity = velocity.rotated(direction)
 
-	add_child(mob)
+	if gameActive:
+		add_child(mob)
 
 func _on_player_laser_shot(laser_scene, location):
 	var laser = laser_scene.instantiate()

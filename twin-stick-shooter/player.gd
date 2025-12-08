@@ -1,5 +1,5 @@
 extends CharacterBody2D
-var screen_size
+@onready var screen_size = get_viewport_rect().size
 
 var laser_scene = preload("res://laser.tscn")
 signal laser_shot(laser_scene, location)
@@ -125,3 +125,9 @@ func _on_area_2d_area_entered(_body: Area2D) -> void:
 		$PowerUp.play()
 		await get_tree().create_timer(10).timeout
 		speedMode = false
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	hide()
+	hit.emit()
+	speedMode = false
