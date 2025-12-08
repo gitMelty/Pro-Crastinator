@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bfcusb2e5v2fj"]
+[gd_scene load_steps=13 format=3 uid="uid://bfcusb2e5v2fj"]
 
 [ext_resource type="Script" uid="uid://ckkeghwqjxvr0" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://b2yw21h5k8lbu" path="res://Player.tscn" id="1_ig7tw"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://xrrh4lyiryow" path="res://hud.tscn" id="4_1bvp3"]
 [ext_resource type="AudioStream" uid="uid://d0mf1s56223r5" path="res://sound/game_bgm_v3.mp3" id="5_lquwl"]
 [ext_resource type="FontFile" uid="uid://humobsa6oho6" path="res://Pixel-digivolve.ttf" id="7_272bh"]
+[ext_resource type="Texture2D" uid="uid://b2hkc64puuput" path="res://art/timer icon.png" id="8_4c57u"]
 [ext_resource type="AudioStream" uid="uid://caytj54i2wgeu" path="res://sound/enemy_death.wav" id="8_5vw27"]
 [ext_resource type="AudioStream" uid="uid://bvonnwekegg7x" path="res://sound/boowomp.wav" id="9_kek77"]
 
@@ -110,6 +111,12 @@ scale = Vector2(2.5, 2.5)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8352941)
 theme_override_fonts/font = ExtResource("7_272bh")
 theme_override_font_sizes/font_size = 17
+
+[node name="Sprite2D" type="Sprite2D" parent="TimeRemaining"]
+texture_filter = 1
+position = Vector2(63.599945, 10.8)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_4c57u")
 
 [node name="EnemyDeath" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_5vw27")
