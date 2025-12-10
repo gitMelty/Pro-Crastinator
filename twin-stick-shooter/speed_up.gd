@@ -14,5 +14,6 @@ func _ready() -> void:
 
 func _on_tree_entered() -> void:
 	add_to_group("powerups")
+	$AnimatedSprite2D.play()
 	await get_tree().create_timer(13).timeout
 	queue_free()
