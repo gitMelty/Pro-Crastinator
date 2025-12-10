@@ -79,7 +79,7 @@ func _on_player_laser_shot(laser_scene, location):
 
 func _on_child_exiting_tree(_body: RigidBody2D) -> void: #add score when mob exits main scene tree
 	if pointsUp:
-		score += 500
+		score += 300
 	else:
 		score += 100
 	if gameActive:
